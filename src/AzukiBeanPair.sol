@@ -35,6 +35,7 @@ contract AzukiBeanPair is ERC721A {
         emit MintPair(_azukiId, _beanzId);
     }
 
+    // Burn the Azuki-Bean pair if msg.sender owns either the Azuki or the Bean
     function burnPair(uint _id) external {
         require(_exists(_id), "Doesn't exist");
         require(
