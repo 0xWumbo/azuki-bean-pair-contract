@@ -10,8 +10,8 @@ contract AzukiBeanPair is ERC721A {
     ERC721A public immutable BEANZ;
 
     struct AzukiBeanzPair {
-        uint azukiId;
-        uint beanzId;
+        uint128 azukiId;
+        uint128 beanzId;
     }
 
     mapping(uint => AzukiBeanzPair) public idToPair;
@@ -23,7 +23,7 @@ contract AzukiBeanPair is ERC721A {
         BEANZ = ERC721A(_beanzAddress);
     }
 
-    function mintPair(uint _azukiId, uint _beanzId) external {
+    function mintPair(uint128 _azukiId, uint128 _beanzId) external {
         require(
             AZUKI.ownerOf(_azukiId) == msg.sender &&
                 BEANZ.ownerOf(_beanzId) == msg.sender,
